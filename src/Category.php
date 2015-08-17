@@ -27,14 +27,14 @@
 		
 		function save()
 		{
-			$GLOBALS['D8']->exec("INSERT INTO categories (name) VALUES ('{$this->getName()}')");
+			$GLOBALS['DB']->exec("INSERT INTO categories (name) VALUES ('{$this->getName()}')");
 			$this->id = $GLOBALS['DB']->lastInsertId();
 		}
 		
 		static function getAll()
 		{
 			
-			$returned_categories = $GLOBALS['D8']->query("SELECT * FROM categories;");
+			$returned_categories = $GLOBALS['DB']->query("SELECT * FROM categories;");
 			$categories = array();
 			foreach($returned_categories as $category) {
 				$name = $category['name'];
